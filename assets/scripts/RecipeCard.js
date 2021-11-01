@@ -110,24 +110,69 @@ class RecipeCard extends HTMLElement {
     //attach rest to card
 
     const thumb_img = document.createElement('img');
-    thumb_img.src = searchForKey(data,'thumbnailUrl');
-    thumb_img.alt = "Recipe Title";
+    thumb_img.setAttribute('src',searchForKey(data,'thumbnailUrl'));
+    thumb_img.setAttribute('alt',"Recipe Title");
+    //thumb_img.src = searchForKey(data,'thumbnailUrl');
+    //thumb_img.alt = "Recipe Title";
     card.appendChild(thumb_img);
 
     const paratitle = document.createElement('p');
-    paratitle.className = "title";
+    paratitle.setAttribute('className','title');
+    // paratitle.className = "title";
     const a_link = document.createElement('a');
     //console.log(searchForKey(data,'headline'));
-    a_link.text = searchForKey(data,'headline'); 
-    a_link.href = getUrl(data);
+    a_link.setAttribute('text',searchForKey(data,'headline'));
+    //a_link.text = searchForKey(data,'headline'); 
+    a_link.setAttribute('href',getUrl(data));
+    // a_link.href = getUrl(data);
     paratitle.appendChild(a_link);
     card.appendChild(paratitle);
     
     const paraorg = document.createElement('p');
-    paraorg.className = "organization";
-    paraorg.textContent=getOrganization(data);
-    
+    paraorg.setAttribute('className','organization');
+    // paraorg.className = "organization";
+    paraorg.setAttribute('textContent',getOrganization(data));
+    // paraorg.textContent=getOrganization(data);
     card.appendChild(paraorg);
+
+
+    const rating = document.createElement('div');
+    rating.setAttribute('className','rating');
+    // rating.className = "rating";
+    let rateValue = searchForKey(data,'ratingValue');
+    let rateValueRound = Math.round(rateValue);
+    const revSpan = document.createElement('span');
+    rating.appendChild(revSpan);
+    
+    if(rateValue != null){
+      revSpan.setAttribute('textContent',rateValueRound);
+      // revSpan.textContent = Math.round(rateValue);
+      const rate_img = document.createElement('img');
+      let ratephotostr = "/assets/images/icons/"+rateValueRound+"-star.svg";
+      rate_img.setAttribute('src',ratephotostr);
+      rate_img.setAttribute('alt',rateValueRound+" stars");
+      rating.appendChild(rate_img);
+      
+      const revCount = document.createElement('span');
+      revCount.setAttribute('textContent',searchForKey(data,'ratingCount'));
+      rating.appendChild(revCount);
+
+    }
+    else{
+      revSpan.textContent = "No Reviews";
+    }
+    
+    card.appendChild(rating);
+
+
+    const timeElem = document.createElement('time');
+    timeElem.textContent = convertTime(searchForKey(data,'totalTime'));
+    card.appendChild(timeElem);
+
+    const ingr = document.createElement('p');
+    ingr.className = "ingredients";
+    ingr.textContent = createIngredientList(searchForKey(data,'recipeIngredient'));
+    card.appendChild(ingr);
     
   }
 }
