@@ -117,8 +117,8 @@ class RecipeCard extends HTMLElement {
     card.appendChild(thumb_img);
 
     const paratitle = document.createElement('p');
-    paratitle.setAttribute('className','title');
-    // paratitle.className = "title";
+    //paratitle.setAttribute('className','title');
+     paratitle.className = "title";
     const a_link = document.createElement('a');
     //console.log(searchForKey(data,'headline'));
   
@@ -130,16 +130,16 @@ class RecipeCard extends HTMLElement {
     card.appendChild(paratitle);
     
     const paraorg = document.createElement('p');
-    paraorg.setAttribute('className','organization');
-    // paraorg.className = "organization";
+    //paraorg.setAttribute('className','organization');
+    paraorg.className = "organization";
     paraorg.setAttribute('textContent',getOrganization(data));
     // paraorg.textContent=getOrganization(data);
     card.appendChild(paraorg);
 
 
     const rating = document.createElement('div');
-    rating.setAttribute('className','rating');
-    // rating.className = "rating";
+    //rating.setAttribute('className','rating');
+     rating.className = "rating";
     let rateValue = searchForKey(data,'ratingValue');
     let rateValueRound = Math.round(rateValue);
     const revSpan = document.createElement('span');
