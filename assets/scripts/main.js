@@ -107,10 +107,10 @@ function createRecipeCards() {
     const element = document.createElement('recipe-card');
     element.data = recipeData[i];
     mainElement.appendChild(element);
-    //console.log(mainElement);
-    //console.log(i);
-    ;   
+    
+    //console.log(i);  
   }
+  console.log(mainElement);
   
 
 }

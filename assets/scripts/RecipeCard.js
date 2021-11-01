@@ -105,14 +105,25 @@ class RecipeCard extends HTMLElement {
     this.appendChild(card);
     
     //const dd = data.parse();
-    console.log(data);
+    //console.log(data);
 
     //attach rest to card
 
     const thumb_img = document.createElement('img');
     thumb_img.src = searchForKey(data,'thumbnailUrl');
+    thumb_img.alt = "Recipe Title";
     card.appendChild(thumb_img);
+
+    const paratitle = document.createElement('p');
+    paratitle.className = "title";
+    const a_link = document.createElement('a');
+    //console.log(searchForKey(data,'headline'));
+    a_link.text = searchForKey(data,'headline'); 
+    a_link.href = getUrl(data);
+    paratitle.appendChild(a_link);
+    card.appendChild(paratitle);
     
+    card.app
 
     
   }
