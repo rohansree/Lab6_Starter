@@ -3,7 +3,8 @@ class RecipeCard extends HTMLElement {
     // Part 1 Expose - TODO
     super();
     // You'll want to attach the shadow DOM here
-    const shadow = this.attachShadow({mode: 'open'})
+    //const shadow =
+     this.attachShadow({mode: 'open'});
   }
 
   set data(data) {

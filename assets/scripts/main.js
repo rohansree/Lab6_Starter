@@ -98,6 +98,20 @@ function createRecipeCards() {
 
   // Part 1 Expose - TODO
 
+  const mainElement = document.querySelector('main');
+  //getElementsByTagName("main");
+  //console.log(mainElement);
+
+  for (let i in recipeData) 
+  {
+    const element = document.createElement('recipe-card');
+    mainElement.appendChild(element);
+    //console.log(mainElement);
+    //console.log(i);
+    element.data = i;   
+  }
+  
+
 }
 
 function bindShowMore() {
