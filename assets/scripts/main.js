@@ -28,7 +28,7 @@ async function init() {
   //console.log("top");
   // Add the first three recipe cards to the page
   createRecipeCards();
-  // console.log(document.querySelector('main'));
+  //console.log(document.querySelector('main'));
   // Make the "Show more" button functional
   bindShowMore();
 }

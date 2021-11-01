@@ -121,8 +121,9 @@ class RecipeCard extends HTMLElement {
     // paratitle.className = "title";
     const a_link = document.createElement('a');
     //console.log(searchForKey(data,'headline'));
-    a_link.setAttribute('text',searchForKey(data,'headline'));
-    //a_link.text = searchForKey(data,'headline'); 
+  
+    //a_link.setAttribute('textContent',searchForKey(data,'headline'));
+    a_link.textContent = searchForKey(data,'headline'); 
     a_link.setAttribute('href',getUrl(data));
     // a_link.href = getUrl(data);
     paratitle.appendChild(a_link);
@@ -145,8 +146,8 @@ class RecipeCard extends HTMLElement {
     rating.appendChild(revSpan);
     
     if(rateValue != null){
-      revSpan.setAttribute('textContent',rateValueRound);
-      // revSpan.textContent = Math.round(rateValue);
+      //revSpan.setAttribute('textContent',rateValueRound);
+       revSpan.textContent = Math.round(rateValue);
       const rate_img = document.createElement('img');
       let ratephotostr = "/assets/images/icons/"+rateValueRound+"-star.svg";
       rate_img.setAttribute('src',ratephotostr);
@@ -154,7 +155,8 @@ class RecipeCard extends HTMLElement {
       rating.appendChild(rate_img);
       
       const revCount = document.createElement('span');
-      revCount.setAttribute('textContent',searchForKey(data,'ratingCount'));
+      //revCount.setAttribute('textContent',searchForKey(data,'ratingCount'));
+      revCount.textContent = searchForKey(data,'ratingCount');
       rating.appendChild(revCount);
 
     }
