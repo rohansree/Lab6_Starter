@@ -101,17 +101,17 @@ class RecipeCard extends HTMLElement {
     // created in the constructor()
 
     // Part 1 Expose - TODO
-    this.appendChild(card);
     this.appendChild(styleElem);
+    this.appendChild(card);
+    
     //const dd = data.parse();
     console.log(data);
 
     //attach rest to card
 
     const thumb_img = document.createElement('img');
-    //thumb_img.src = 
-
-    // article.appendChild
+    thumb_img.src = searchForKey(data,'thumbnailUrl');
+    card.appendChild(thumb_img);
     
 
     
@@ -134,6 +134,7 @@ class RecipeCard extends HTMLElement {
 function searchForKey(object, key) {
   var value;
   Object.keys(object).some(function (k) {
+    //console.log(object[k]);
     if (k === key) {
       value = object[k];
       return true;

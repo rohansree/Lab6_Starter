@@ -105,10 +105,11 @@ function createRecipeCards() {
   for (let i in recipeData) 
   {
     const element = document.createElement('recipe-card');
+    element.data = recipeData[i];
     mainElement.appendChild(element);
     //console.log(mainElement);
     //console.log(i);
-    element.data = i;   
+    ;   
   }
   
 
