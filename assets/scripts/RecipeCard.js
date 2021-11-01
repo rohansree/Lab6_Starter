@@ -123,8 +123,11 @@ class RecipeCard extends HTMLElement {
     paratitle.appendChild(a_link);
     card.appendChild(paratitle);
     
-    card.app
-
+    const paraorg = document.createElement('p');
+    paraorg.className = "organization";
+    paraorg.textContent=getOrganization(data);
+    
+    card.appendChild(paraorg);
     
   }
 }
